@@ -15,3 +15,10 @@ class PassengerCensusViewSet(viewsets.ModelViewSet):
 
     queryset = PassengerCensus.objects.all()
     serializer_class = PassengerCensusSerializer
+    filter_backends = (SearchFilter,DjangoFilterBackend,OrderingFilter,)
+    search_fields = ('route_number', 'direction','service_key','stop_seq',
+                     'location_id','public_location_description',)
+    filter_fields = ('summary_begin_date','route_number','direction','service_key','stop_seq','location_id',
+                    'public_location_description','ons','offs','x_coord','y_coord','geom_2913','geom_4326',)
+    ordering_fields = '__all__'
+
