@@ -197,6 +197,9 @@ If filtering just "00173" and "00174" for the field 'ser_no' -
 ```
 http://localhost:8000/api/passenger-census/?ser_no=00173&ser_no=00174
 ```
+Note: 
+1. Filters need to be an exact match. 
+2. URLs need to be encoded. All [reserved characters](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) characters should be escaped. For example, a query on the field `public_location_description` with the value `SW 6th & Salmon`, then the query should look like this - `http://localhost:8000/api/passenger-census/?public_location_description=SW%206th%20%26%20Salmon`. Here both spaces (`%20`) and ampersands (`%26`) have been escaped.
 
 #### 3. Ordering Filters
 Results can be sorted against any field or combinations of fields.
